@@ -14,8 +14,8 @@ public class Book {
     @Column(name="ID")
 	private Long id;
 
-	@Column(name="NAME")
-	private String name;
+	@Column(name="TITLE")
+	private String title;
 	
 	@Column(name="DISCRIPTION")
 	private String discription;
@@ -23,7 +23,7 @@ public class Book {
 	@Column(name="ISBOOKED")
 	private boolean isBooked;
 	
-	@ManyToMany(mappedBy = "bookBooks")
+	@ManyToMany(mappedBy = "bookingBooks")
 	private Set<Booking> bookingIn = new HashSet<>();
 	 
 	@ManyToOne
@@ -32,15 +32,15 @@ public class Book {
 	
 	public Book() {}
 
-	public Book(Long id, String name, String discription , boolean isBooked) {
+	public Book(Long id, String title, String discription , boolean isBooked) {
 		this.id = id;
-		this.name = name;
+		this.title = title;
 		this.discription = discription;
 		this.isBooked = isBooked;
 	}
 	
-	public Book(String name, String discription, boolean isBooked) {
-		this(null,name,discription,isBooked);
+	public Book(String title, String discription, boolean isBooked) {
+		this(null,title,discription,isBooked);
 	}
 
 	public Long getId() {
@@ -51,12 +51,12 @@ public class Book {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getDiscription() {
