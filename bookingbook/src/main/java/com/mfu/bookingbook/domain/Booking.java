@@ -18,7 +18,7 @@ public class Booking {
 	@Column(name="AMOUNT")
 	private String amount;
 
-	@Column(name="TIME")
+	@Column(name="DATE")
 	private LocalDateTime date;
 	
 	@ManyToOne
