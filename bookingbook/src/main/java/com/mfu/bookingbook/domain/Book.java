@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "BOOK")
 public class Book {
@@ -16,6 +18,9 @@ public class Book {
 
 	@Column(name="TITLE")
 	private String title;
+
+	@Column(name="IMAGE")
+	private String image;
 	
 	@Column(name="DISCRIPTION")
 	private String discription;
@@ -23,24 +28,28 @@ public class Book {
 	@Column(name="ISBOOKED")
 	private boolean isBooked;
 	
-	@ManyToMany(mappedBy = "bookingBooks")
-	private Set<Booking> bookingIn = new HashSet<>();
-	 
+	@JsonIgnore
+	@OneToMany
+	@JoinColumn(name="bookingBook")
+    private Set<Booking> bookingIn;
+	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="AUTHOR_ID")
 	private Author author;
 	
 	public Book() {}
 
-	public Book(Long id, String title, String discription , boolean isBooked) {
+	public Book(Long id, String title, String discription ,String image, boolean isBooked) {
 		this.id = id;
 		this.title = title;
 		this.discription = discription;
+		this.image = image;
 		this.isBooked = isBooked;
 	}
 	
-	public Book(String title, String discription, boolean isBooked) {
-		this(null,title,discription,isBooked);
+	public Book(String title, String discription,String image, boolean isBooked) {
+		this(null,title,discription,image,isBooked);
 	}
 
 	public Long getId() {
@@ -65,6 +74,14 @@ public class Book {
 
 	public void setDiscription(String discription) {
 		this.discription = discription;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public boolean getIsBooked() {

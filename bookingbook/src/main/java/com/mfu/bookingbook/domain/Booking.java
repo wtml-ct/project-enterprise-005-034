@@ -18,20 +18,17 @@ public class Booking {
 	@Column(name="AMOUNT")
 	private String amount;
 
-	@Column(name="DATE")
+	@Column(name="DATE_BOOK")
 	private LocalDateTime date;
 	
 	@ManyToOne
 	@JoinColumn(name="USER_ID")
 	private User user;
 	
-	@ManyToMany
-    @JoinTable(
-            name = "BOOKING_BOOK",
-            joinColumns = @JoinColumn(name = "BOOKING_ID"),
-            inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
-    private Set<Book> bookingBooks = new HashSet<>();
-	
+	@ManyToOne
+	@JoinColumn(name="BOOK_ID")
+	private Book bookingBook;
+
 	public Booking(){}
 	
 	public Booking(Long id, String amount,  LocalDateTime date){
@@ -67,8 +64,16 @@ public class Booking {
 	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
-	
-	public Set<Book> getBookingBooks() {
-		return bookingBooks;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setBookingBook(Book bookingBook) {
+		this.bookingBook = bookingBook;
 	}
 }

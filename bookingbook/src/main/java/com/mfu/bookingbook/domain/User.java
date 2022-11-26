@@ -1,6 +1,10 @@
 package com.mfu.bookingbook.domain;
 
+import java.util.Set;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "USERS")
@@ -16,6 +20,10 @@ public class User {
 
 	@Column(name="PASSWORD")
 	private String password;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "user")
+	private Set<Booking> booking;
 
 	public User() {}
 
