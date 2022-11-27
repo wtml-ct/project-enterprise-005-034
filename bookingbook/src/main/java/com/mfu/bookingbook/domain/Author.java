@@ -13,20 +13,32 @@ public class Author {
 
 	@Column(name="NAME")
 	private String name;
+
+	@Column(name="PIC")
+	private String pic;
 	
 	public Author() {}
 
-	public Author(Long id, String name) {
+	public Author(Long id, String name, String pic) {
 		this.id = id;
 		this.name = name;
+		this.pic = pic;
 	}
 	
-	public Author(String name) {
-		this(null,name);
+	public Author(String name,String pic) {
+		this(null,name,pic);
 	}
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getPic() {
+		return pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
 
 	public void setId(Long id) {

@@ -13,7 +13,7 @@ public class Book {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID")
+    @Column(name="BOOK_ID")
 	private Long id;
 
 	@Column(name="TITLE")
@@ -25,8 +25,8 @@ public class Book {
 	@Column(name="DISCRIPTION")
 	private String discription;
 	
-	@Column(name="ISBOOKED")
-	private boolean isBooked;
+	// @Column(name="ISBOOKED")
+	// private boolean isBooked;
 	
 	@JsonIgnore
 	@OneToMany
@@ -40,16 +40,16 @@ public class Book {
 	
 	public Book() {}
 
-	public Book(Long id, String title, String discription ,String image, boolean isBooked) {
+	public Book(Long id, String title, String discription ,String image) {
 		this.id = id;
 		this.title = title;
 		this.discription = discription;
 		this.image = image;
-		this.isBooked = isBooked;
+		
 	}
 	
-	public Book(String title, String discription,String image, boolean isBooked) {
-		this(null,title,discription,image,isBooked);
+	public Book(String title, String discription,String image) {
+		this(null,title,discription,image);
 	}
 
 	public Long getId() {
@@ -82,14 +82,6 @@ public class Book {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	public boolean getIsBooked() {
-		return isBooked;
-	}
-
-	public void setIsBooked(boolean isBooked) {
-		this.isBooked = isBooked;
 	}
 	
 	public Set<Booking> getBookingIn() {

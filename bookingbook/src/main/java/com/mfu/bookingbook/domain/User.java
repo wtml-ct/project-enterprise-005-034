@@ -15,6 +15,9 @@ public class User {
     @Column(name="USER_ID")
 	private Long id;
 
+	@Column(name="NAME")
+	private String name;
+
 	@Column(name="USERNAME")
 	private String username;
 
@@ -27,14 +30,15 @@ public class User {
 
 	public User() {}
 
-	public User(Long id, String username, String password) {
+	public User(Long id, String name,String username, String password) {
 		this.id = id;
+		this.name = name;
 		this.username = username;
 		this.password = password;
 	}
 
-	public User(String username, String password) {
-		this(null, username, password);
+	public User(String name, String username, String password) {
+		this(null, name,username, password);
 	}
 
 	public Long getId() {
@@ -45,8 +49,24 @@ public class User {
 		this.id = id;
 	}
 
+	public Set<Booking> getBooking() {
+		return booking;
+	}
+
+	public void setBooking(Set<Booking> booking) {
+		this.booking = booking;
+	}
+
 	public String getUsername() {
 		return username;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public void setUsername(String username) {

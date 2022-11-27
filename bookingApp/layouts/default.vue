@@ -99,13 +99,29 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Home',
           to: '/'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'My booking',
+          to: '/history'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Login',
+          to: '/Login'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Regis',
+          to: '/Regis'
+        }
+        ,
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Booking',
+          to: '/BookingBook'
         }
       ],
       miniVariant: false,

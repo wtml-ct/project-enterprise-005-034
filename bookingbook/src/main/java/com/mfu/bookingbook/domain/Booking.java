@@ -19,7 +19,7 @@ public class Booking {
 	private String amount;
 
 	@Column(name="DATE_BOOK")
-	private LocalDateTime date;
+	private String date;
 	
 	@ManyToOne
 	@JoinColumn(name="USER_ID")
@@ -31,13 +31,13 @@ public class Booking {
 
 	public Booking(){}
 	
-	public Booking(Long id, String amount,  LocalDateTime date){
+	public Booking(Long id, String amount, String date){
 		this.id = id;
 		this.amount = amount;
 		this.date = date;
 	}
 	
-	public Booking(String amount,  LocalDateTime date){
+	public Booking(String amount, String date){
 		this(null,amount, date);
 	}
 
@@ -57,11 +57,11 @@ public class Booking {
 		this.amount = amount;
 	}
 
-	public LocalDateTime getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -75,5 +75,9 @@ public class Booking {
 
 	public void setBookingBook(Book bookingBook) {
 		this.bookingBook = bookingBook;
+	}
+
+	public Book getBookingBook() {
+		return bookingBook;
 	}
 }
