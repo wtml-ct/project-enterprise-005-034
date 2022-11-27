@@ -1,6 +1,10 @@
 package com.mfu.bookingbook.domain;
 
+import java.util.Set;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "AUTHOR")
@@ -16,7 +20,11 @@ public class Author {
 
 	@Column(name="PIC")
 	private String pic;
-	
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "author")
+	private Set<Book> book;
+
 	public Author() {}
 
 	public Author(Long id, String name, String pic) {
@@ -28,15 +36,15 @@ public class Author {
 	public Author(String name,String pic) {
 		this(null,name,pic);
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
-
+	
 	public String getPic() {
 		return pic;
 	}
-
+	
 	public void setPic(String pic) {
 		this.pic = pic;
 	}
@@ -44,12 +52,19 @@ public class Author {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
+	}
+	public Set<Book> getBook() {
+		return book;
+	}
+	
+	public void setBook(Set<Book> book) {
+		this.book = book;
 	}
 }
