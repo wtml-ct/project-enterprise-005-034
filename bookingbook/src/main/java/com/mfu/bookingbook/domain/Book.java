@@ -22,8 +22,8 @@ public class Book {
 	@Column(name="IMAGE")
 	private String image;
 	
-	@Column(name="DISCRIPTION")
-	private String discription;
+	@Column(name="DESCRIPTION")
+	private String description;
 	
 	// @Column(name="ISBOOKED")
 	// private boolean isBooked;
@@ -38,20 +38,21 @@ public class Book {
 	@JoinColumn(name="AUTHOR_ID")
 	private Author author;
 	
+	
 	public Book() {}
-
-	public Book(Long id, String title, String discription ,String image) {
+	
+	public Book(Long id, String title, String description ,String image) {
 		this.id = id;
 		this.title = title;
-		this.discription = discription;
+		this.description = description;
 		this.image = image;
 		
 	}
 	
-	public Book(String title, String discription,String image) {
-		this(null,title,discription,image);
+	public Book(String title, String description,String image) {
+		this(null,title,description,image);
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -59,7 +60,7 @@ public class Book {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	public String getTitle() {
 		return title;
 	}
@@ -68,27 +69,27 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getDiscription() {
-		return discription;
+	public String getDescription() {
+		return description;
 	}
-
-	public void setDiscription(String discription) {
-		this.discription = discription;
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
-
+	
 	public String getImage() {
 		return image;
 	}
-
+	
 	public void setImage(String image) {
 		this.image = image;
 	}
 	
-	public Set<Booking> getBookingIn() {
-		return bookingIn;
-	}
-
-	public void bookingBook(Booking booking) {
-		bookingIn.add(booking);
-	}
+	// public Set<Booking> getBookingIn() {
+		// 	return bookingIn;
+		// }
+		
+		// public void bookingBook(Booking booking) {
+			// 	bookingIn.add(booking);
+			// }
 }

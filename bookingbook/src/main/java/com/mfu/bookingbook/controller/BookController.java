@@ -60,7 +60,7 @@ public class BookController {
 	  
 	  if(oldBookData.isPresent()) {
 		  Book updatedBookData = oldBookData.get();
-		  updatedBookData.setDiscription(newBookData.getDiscription());
+		  updatedBookData.setDescription(newBookData.getDescription());
 		  updatedBookData.setTitle(newBookData.getTitle());
 		  
 		  Book bookObj = bookRepo.save(updatedBookData);
