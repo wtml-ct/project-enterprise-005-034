@@ -73,8 +73,9 @@ export default {
   mounted() {
   },
   created() {
+    this.user = JSON.parse(sessionStorage.getItem("users"))
     Axios.get("/api/getAllBookings").then((res) => {
-      this.booking = res.data;
+        this.booking = res.data;
     })
   },
 
