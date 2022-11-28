@@ -52,14 +52,24 @@
 </template>>
 <script>
   export default {
-    data () {
+     data() {
+    return {
+      drawer: false,
+      clipped: false,
+      fixed: false,
+      items_home: [
+        {
+          icon: "mdi-home",
+          title: "Booing",
+          to: "/booking",
+        },
+      ],}
       return {
         tab: null,
         items: [
           'web', 'shopping', 'videos', 'images', 'news',
         ],
       }
-    },
-  }
+      }};
 </script>
 >
