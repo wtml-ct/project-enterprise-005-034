@@ -8,11 +8,11 @@
               <img style="" class="text-center"
                 :src="b.bookingBook.image" />
             </div>
-            <v-card-title>{{ b.amount }}</v-card-title>
+            <v-card-title>{{ b.bookingBook.title }}</v-card-title>
             <v-card-text>
               <div>Date : {{ b.date }}</div>
             </v-card-text>
-            <v-btn outlined rounded text class="cen mb-5">
+            <v-btn outlined rounded text class="cen mb-5" @click="onEditBooking(b)">
               EDIT
             </v-btn>
             <v-btn outlined rounded text class="cen mb-5" @click="onDeleteBooking(b)">
@@ -59,16 +59,14 @@ export default {
           this.booking = res.data;
         })
       })
-      // Axios.get("/api/getAllBooks").then((res) => {
-      //   var books = res.data;
-      //   let b = [];
-      //   for (var i = 0;i<books.length;i++){
-      //     b.push(books[i].author.id);
-      //   }
-      //   console.log("books",b);
-
-      // })
-
+    },
+    onEditBooking(index) {
+      console.log(index)
+      Axios.delete("/api/updateBookingById/" + index.id).then((res) => {
+        Axios.get("/api/getAllBookings").then((res) => {
+          this.booking = res.data;
+        })
+      })
     }
   }
 }
