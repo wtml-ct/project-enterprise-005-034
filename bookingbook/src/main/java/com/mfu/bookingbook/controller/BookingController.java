@@ -60,7 +60,6 @@ public class BookingController {
 	  
 	  if(oldBookingData.isPresent()) {
 		  Booking updatedBookingData = oldBookingData.get();
-		  updatedBookingData.setAmount(newBookingData.getAmount());
 		  updatedBookingData.setDate(newBookingData.getDate());
 		  
 		  Booking bookingObj = bookingRepo.save(updatedBookingData);

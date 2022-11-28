@@ -33,6 +33,10 @@ public class Book {
 	// @JoinColumn(name="bookingBook")
 	// private Set<Booking> bookingIn;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "bookingBook")
+	private Set<Booking> booking;
+
 	// @JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "AUTHOR_ID")
@@ -85,13 +89,6 @@ public class Book {
 		this.image = image;
 	}
 
-	// public Set<Booking> getBookingIn() {
-	// return bookingIn;
-	// }
-
-	// public void bookingBook(Booking booking) {
-	// bookingIn.add(booking);
-	// }
 	public Author getAuthor() {
 		return author;
 	}

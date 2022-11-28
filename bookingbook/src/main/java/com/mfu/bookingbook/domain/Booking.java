@@ -14,11 +14,8 @@ public class Booking {
 	@GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="BOOKING_ID")
 	private Long id;
-	
-	@Column(name="AMOUNT")
-	private String amount;
 
-	@Column(name="DATE_BOOK")
+	@Column(name="DATE")
 	private String date;
 	
 	@ManyToOne
@@ -31,14 +28,14 @@ public class Booking {
 
 	public Booking(){}
 	
-	public Booking(Long id, String amount, String date){
+	public Booking(Long id, String date){
 		this.id = id;
-		this.amount = amount;
+		
 		this.date = date;
 	}
 	
-	public Booking(String amount, String date){
-		this(null,amount, date);
+	public Booking(String date){
+		this(null, date);
 	}
 
 	public Long getId() {
@@ -49,13 +46,7 @@ public class Booking {
 		this.id = id;
 	}
 
-	public String getAmount() {
-		return amount;
-	}
 
-	public void setAmount(String amount) {
-		this.amount = amount;
-	}
 
 	public String getDate() {
 		return date;
