@@ -41,13 +41,13 @@ export default {
     mounted() {
     },
     created() {
+
     },
     beforeDestroy() {
 
     },
     methods: {
         onSignin() {
-
             Axios.get("/api/getAllUsers").then((res) => {
                 var user = res.data
                 console.log("user", user);
@@ -56,9 +56,7 @@ export default {
                 if (login == undefined) {
                     alert("Incorrect username or password.");
                 } else {
-                    sessionStorage.setItem("users", JSON.stringify(login));
-                    this.$router.push({ path: "/BookingBook" });
-
+                    this.$router.push({path: "/BookingBook"});
                 }
 
             })

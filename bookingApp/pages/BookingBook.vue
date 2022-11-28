@@ -7,15 +7,38 @@
             <div class="img">
               <img style="" class="text-center" :src="b.image" />
             </div>
-            <v-card-title>{{ b.description }}</v-card-title>
+            <v-card-title>{{ b.title }}</v-card-title>
             <v-card-text>
               <div>ID : {{ b.id }}</div>
-              <div>Book : {{ b.title }}</div>
-              <div>Author : {{ b.author.id }}</div>
+              <div>Book : {{ b.description }}</div>
+              <div>Author : {{ b.author.name }}</div>
             </v-card-text>
-            <v-btn outlined rounded text class="cen mb-5" @click="onBooking(b)">
+            <v-btn outlined rounded text class="cen mb-5" @click="onOpenBook(b)">
               BOOKING
             </v-btn>
+            <v-dialog v-model="dialog" persistent max-width="600px">
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5">Edit Date</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container>
+                    <v-row>
+                      <v-text-field v-model.trim="form.date" label="Date"></v-text-field>
+                    </v-row>
+                  </v-container>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="blue darken-1" text @click="dialog = false">
+                    Close
+                  </v-btn>
+                  <v-btn color="blue darken-1" text @click="onBooking()">
+                    Save
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </v-card>
         </v-flex>
       </v-layout>
@@ -33,6 +56,12 @@ export default {
       author: [],
       book: [],
       step: 0,
+      form: {
+        date: "",
+        id:""
+      },
+      user:"",
+      dialog: false,
     };
 
   },
@@ -44,20 +73,23 @@ export default {
     Axios.get("/api/getAllBooks").then((res) => {
       this.book = res.data;
     })
+    this.user = JSON.parse(sessionStorage.getItem("users"))
   },
   beforeDestroy() {
 
   },
   methods: {
-    onBooking(index) {
+    onBooking() {
       Axios.post("/api/addBooking", {
-        date: "12",
-        amount: "43",
-        user: { id: 1 },
-        bookingBook: { id: index.id }
+        date: this.form.date,
+        user: { id: this.user.id },
+        bookingBook: { id: this.form.id }
       })
       this.$router.push({ path: "/History" });
-
+    },
+    onOpenBook(index) {
+      this.dialog = true;
+      this.form = index;
     }
   }
 }
