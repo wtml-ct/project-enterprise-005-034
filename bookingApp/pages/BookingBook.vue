@@ -13,13 +13,13 @@
               <div>Book : {{ b.description }}</div>
               <div>Author : {{ b.author.name }}</div>
             </v-card-text>
-            <v-btn outlined rounded text class="cen mb-5" @click="onOpenBook(b)">
+            <v-btn outlined rounded class="cen mb-5" style="color:green" @click="onOpenBook(b)">
               BOOKING
             </v-btn>
             <v-dialog v-model="dialog" persistent max-width="600px">
               <v-card>
                 <v-card-title>
-                  <span class="text-h5">Edit Date</span>
+                  <span class="text-h5">Add Date</span>
                 </v-card-title>
                 <v-card-text>
                   <v-container>

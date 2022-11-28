@@ -13,7 +13,7 @@
               <div>Date : {{ b.date }}</div>
             </v-card-text>
             
-            <v-btn outlined rounded text class="cen mb-5" @click="onOpenEdit(b)">
+            <v-btn outlined rounded class="cen mb-5" style="color:orange" @click="onOpenEdit(b)">
               EDIT
             </v-btn>
             <v-dialog v-model="dialog" persistent max-width="600px">
@@ -39,7 +39,7 @@
                 </v-card-actions>
               </v-card>
             </v-dialog>
-            <v-btn outlined rounded text class="cen mb-5" @click="onDeleteBooking(b)">
+            <v-btn outlined rounded class="cen mb-5" style="color:red" @click="onDeleteBooking(b)">
               DELETE
             </v-btn>
           </v-card>

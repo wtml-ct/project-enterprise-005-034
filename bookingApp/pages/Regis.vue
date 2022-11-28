@@ -9,8 +9,8 @@
         <div class="input">
             <v-text-field v-model.trim="form.user_name" label="Full name"></v-text-field>
             <v-text-field v-model.trim="form.user_username" label="Username"></v-text-field>
-            <v-text-field v-model.trim="form.user_password" label="Password"></v-text-field>
-            <v-text-field v-model.trim="confirm_password" label="Comfirm password"></v-text-field>
+            <v-text-field type="password" v-model.trim="form.user_password" label="Password"></v-text-field>
+            <v-text-field type="password" v-model.trim="confirm_password" label="Comfirm password"></v-text-field>
         </div>
         <div class="text-center">
             <v-btn rounded color="green" dark @click="onSignup">
@@ -57,6 +57,7 @@ export default {
                     password: this.form.user_password
                 }).then((res) => {
                     alert("Complete");
+                    this.$router.push({ path: "/" });
                 })
             } else {
                 alert("Uncomplete");
