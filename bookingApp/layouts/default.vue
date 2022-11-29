@@ -61,23 +61,23 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-login',
           title: 'Login',
           to: '/'
         },
         {
-          
+          icon: 'mdi-account-plus',
           title: 'Register',
           to: '/Regis'
         }
         ,
         {
-          
+          icon: 'mdi-book',
           title: 'Booking',
           to: '/BookingBook'
         },
         {
-          
+          icon: 'mdi-history',
           title: 'History',
           to: '/history'
         },
