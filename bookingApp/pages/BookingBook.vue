@@ -1,10 +1,15 @@
 <template>
+  <v-app>
   <div>
+    <!-- Add this part -->
+    <p class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">All Book</p>
+    <!-- Add this part -->
     <div v-if="step == 0">
       <v-layout wrap>
         <v-flex lg3 md4 sm12 xs6 v-for="(b, idx) in this.book" :key="idx" :items="book">
           <v-card class="card">
             <div class="img">
+              
               <img style="" class="text-center" :src="b.image" />
             </div>
             <v-card-title>{{ b.title }}</v-card-title>
@@ -44,6 +49,7 @@
       </v-layout>
     </div>
   </div>
+  </v-app>
 </template>
 <script>
 import Axios from "axios";
@@ -110,5 +116,16 @@ export default {
 img {
   width: auto;
   height: 250px;
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+v-app {
+  background-color: #B0BEC5;
 }
 </style>
