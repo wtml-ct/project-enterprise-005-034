@@ -18,7 +18,7 @@
               <div>Book : {{ b.description }}</div>
               <div>Author : {{ b.author.name }}</div>
             </v-card-text>
-            <v-btn outlined rounded class="cen mb-5" style="color:green" @click="onOpenBook(b)">
+            <v-btn dark rounded class="cen mb-5" color="green" @click="onOpenBook(b)">
               BOOKING
             </v-btn>
             <v-dialog v-model="dialog" persistent max-width="600px">

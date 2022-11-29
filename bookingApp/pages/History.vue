@@ -13,8 +13,9 @@
             <v-card-text>
               <div>Date : {{ b.date }}</div>
             </v-card-text>
-            <v-row class="bottom">
-            <v-btn outlined rounded class="cen mb-5" style="color:orange" @click="onOpenEdit(b)">
+            <br>
+            <v-row class="mb-2 bottom">
+            <v-btn dark rounded class="cen mb-5" color="orange" @click="onOpenEdit(b)">
               EDIT
             </v-btn>
             <v-dialog v-model="dialog" persistent max-width="600px">
@@ -40,7 +41,7 @@
                 </v-card-actions>
               </v-card>
             </v-dialog>
-            <v-btn outlined rounded class="cen mb-5" style="color:red" @click="onDeleteBooking(b)">
+            <v-btn dark rounded class="cen mb-5" color="red" @click="onDeleteBooking(b)">
               DELETE
             </v-btn>
             </v-row>
