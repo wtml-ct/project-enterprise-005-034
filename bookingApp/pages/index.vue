@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <p class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">Login</p>
+            <h3 class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">Login</h3>
             <p><img class="img"
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg">
             </p>
@@ -88,5 +88,9 @@ export default {
     margin-left: auto;
     margin-right: auto;
     width: 40%;
+}
+
+h3 {
+  font-family:"Merienda";
 }
 </style>

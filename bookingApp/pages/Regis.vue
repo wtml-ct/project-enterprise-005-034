@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <p class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">Register</p>
+            <h3 class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">Register</h3>
             <p><img class="img"
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg">
             </p>
@@ -13,7 +13,7 @@
             <v-text-field outlined rounded type="password" v-model.trim="confirm_password" label="Comfirm password"></v-text-field>
         </div>
         <div class="text-center">
-            <v-btn outlined rounded class="cen mb-5" style="color:#1565C0" dark @click="onSignup">
+            <v-btn  rounded class="cen mb-5" color="primary" dark @click="onSignup">
                 Sign up
             </v-btn>
         </div>
@@ -87,5 +87,9 @@ export default {
     margin-left: auto;
     margin-right: auto;
     width: 40%;
+}
+
+h3 {
+  font-family:"Merienda";
 }
 </style>
