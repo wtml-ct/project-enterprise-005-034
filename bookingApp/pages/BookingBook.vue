@@ -1,5 +1,9 @@
 <template>
+  <v-app>
   <div>
+    <!-- Add this part -->
+    <p class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">All Book</p>
+    <!-- Add this part -->
     <div v-if="step == 0">
       <v-layout wrap>
         <v-flex lg3 md4 sm12 xs6 v-for="(b, idx) in this.book" :key="idx" :items="book">
@@ -45,6 +49,7 @@
       </v-layout>
     </div>
   </div>
+  </v-app>
 </template>
 <script>
 import Axios from "axios";
@@ -119,5 +124,8 @@ img {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+v-app {
+  background-color: #B0BEC5;
 }
 </style>

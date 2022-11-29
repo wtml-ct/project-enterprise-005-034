@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">History</p>
     <div>
       <v-layout wrap>
         <v-flex lg3 md4 sm12 xs6 v-for="(b, idx) in this.booking" :key="idx" :items="booking">
@@ -12,7 +13,7 @@
             <v-card-text>
               <div>Date : {{ b.date }}</div>
             </v-card-text>
-            
+            <v-row class="bottom">
             <v-btn outlined rounded class="cen mb-5" style="color:orange" @click="onOpenEdit(b)">
               EDIT
             </v-btn>
@@ -42,6 +43,7 @@
             <v-btn outlined rounded class="cen mb-5" style="color:red" @click="onDeleteBooking(b)">
               DELETE
             </v-btn>
+            </v-row>
           </v-card>
         </v-flex>
       </v-layout>

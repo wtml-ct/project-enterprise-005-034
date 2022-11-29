@@ -77,7 +77,7 @@ export default {
           to: '/BookingBook'
         },
         {
-          icon: 'mdi-history',
+          icon: 'mdi-account-plus',
           title: 'History',
           to: '/history'
         },

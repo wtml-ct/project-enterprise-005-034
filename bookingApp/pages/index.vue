@@ -7,14 +7,17 @@
             </p>
         </div>
         <div class="input">
-            <v-text-field v-model.trim="form.user_username" label="Username"></v-text-field>
-            <v-text-field type="password" v-model.trim="form.user_password" label="Password"></v-text-field>
+        
+            <v-text-field outlined rounded v-model.trim="form.user_username" label="Username"></v-text-field>
+            <v-text-field outlined rounded type="password" v-model.trim="form.user_password" label="Password"></v-text-field>
+           
+        
         </div>
         <div class="text-center">
-            <v-btn rounded color="green" dark @click="onSignin">
+            <v-btn  rounded color="green" dark @click="onSignin">
                 Sign in
             </v-btn>
-            <v-btn class="signup" rounded color="primary" dark to="/Regis">
+            <v-btn class="signup"  rounded color="primary" dark to="/Regis">
                 Sign up
             </v-btn>
         </div>
