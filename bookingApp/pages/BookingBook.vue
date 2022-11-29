@@ -18,10 +18,12 @@
               <div>Book : {{ b.description }}</div>
               <div>Author : {{ b.author.name }}</div>
             </v-card-text>
-            <v-btn rounded class="cen mb-5" color="green" @click="onOpenBook(b)">
+           
+            <v-btn rounded class="cen " color="green" @click="onOpenBook(b)">
               BOOKING
             </v-btn>
-            <v-dialog v-model="dialog" persistent max-width="600px">
+           
+            <v-dialog v-model="dialog" persistent max-width="400px">
               <v-card>
                 <v-card-title>
                   <span class=" cen text-h5">Add Date</span>
@@ -29,7 +31,7 @@
                 <v-card-text>
                   <v-container>
                     <v-row>
-                      <v-text-field outlined v-model.trim="form.date" label="Date"></v-text-field>
+                      <v-text-field outlined style="padding: 10px;" v-model.trim="form.date" label="Date"></v-text-field>
                     </v-row>
                   </v-container>
                 </v-card-text>
@@ -106,11 +108,13 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  
 }
 
 .card {
   margin: 20px;
   overflow: hidden;
+  height: 600px;
 }
 
 img {
