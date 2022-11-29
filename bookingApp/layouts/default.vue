@@ -67,7 +67,7 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Regis',
+          title: 'Register',
           to: '/Regis'
         }
         ,
