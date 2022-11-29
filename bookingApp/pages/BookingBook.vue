@@ -1,9 +1,9 @@
 <template>
   <v-app>
   <div>
-    <!-- Add this part -->
-    <p class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">All Book</p>
-    <!-- Add this part -->
+    
+    <h3 class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">All Book</h3>
+    
     <div v-if="step == 0">
       <v-layout wrap>
         <v-flex lg3 md4 sm12 xs6 v-for="(b, idx) in this.book" :key="idx" :items="book">
@@ -18,27 +18,29 @@
               <div>Book : {{ b.description }}</div>
               <div>Author : {{ b.author.name }}</div>
             </v-card-text>
-            <v-btn outlined rounded class="cen mb-5" style="color:green" @click="onOpenBook(b)">
+           
+            <v-btn rounded class="cen " color="green" @click="onOpenBook(b)">
               BOOKING
             </v-btn>
-            <v-dialog v-model="dialog" persistent max-width="600px">
+           
+            <v-dialog v-model="dialog" persistent max-width="400px">
               <v-card>
                 <v-card-title>
-                  <span class="text-h5">Add Date</span>
+                  <span class=" cen text-h5">Add Date</span>
                 </v-card-title>
                 <v-card-text>
                   <v-container>
                     <v-row>
-                      <v-text-field v-model.trim="form.date" label="Date"></v-text-field>
+                      <v-text-field outlined style="padding: 10px;" v-model.trim="form.date" label="Date"></v-text-field>
                     </v-row>
                   </v-container>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="dialog = false">
+                  <v-btn rounded color="red darken-1" dark text @click="dialog = false">
                     Close
                   </v-btn>
-                  <v-btn color="blue darken-1" text @click="onBooking()">
+                  <v-btn rounded color="blue darken-1" dark text @click="onBooking()">
                     Save
                   </v-btn>
                 </v-card-actions>
@@ -106,11 +108,13 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  
 }
 
 .card {
   margin: 20px;
   overflow: hidden;
+  height: 600px;
 }
 
 img {
@@ -125,7 +129,8 @@ img {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-v-app {
-  background-color: #B0BEC5;
+
+h3 {
+  font-family:"Merienda";
 }
 </style>

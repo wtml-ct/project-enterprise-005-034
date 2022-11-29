@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">History</p>
+    <h3 class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">History</h3>
     <div>
       <v-layout wrap>
         <v-flex lg3 md4 sm12 xs6 v-for="(b, idx) in this.booking" :key="idx" :items="booking">
@@ -13,34 +13,34 @@
             <v-card-text>
               <div>Date : {{ b.date }}</div>
             </v-card-text>
-            <v-row class="bottom">
-            <v-btn outlined rounded class="cen mb-5" style="color:orange" @click="onOpenEdit(b)">
+            <v-row class="mb-1 mt-1 bottom">
+            <v-btn rounded class="cen mb-5" color="orange" @click="onOpenEdit(b)">
               EDIT
             </v-btn>
-            <v-dialog v-model="dialog" persistent max-width="600px">
+            <v-dialog v-model="dialog" persistent max-width="400px">
               <v-card>
                 <v-card-title>
-                  <span class="text-h5">Edit Date</span>
+                  <span class="cen text-h5">Edit Date</span>
                 </v-card-title>
                 <v-card-text>
                   <v-container>
                     <v-row>
-                      <v-text-field v-model.trim="form.date" label="Date"></v-text-field>
+                      <v-text-field outlined style="padding:10px" v-model.trim="form.date" label="Date"></v-text-field>
                     </v-row>
                   </v-container>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="dialog = false">
+                  <v-btn rounded color="red darken-1" dark text @click="dialog = false">
                     Close
                   </v-btn>
-                  <v-btn color="blue darken-1" text @click="onEditBooking()">
+                  <v-btn rounded color="blue darken-1" dark text @click="onEditBooking()">
                     Save
                   </v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
-            <v-btn outlined rounded class="cen mb-5" style="color:red" @click="onDeleteBooking(b)">
+            <v-btn rounded class="cen mb-5" color="red" @click="onDeleteBooking(b)">
               DELETE
             </v-btn>
             </v-row>
@@ -126,5 +126,9 @@ export default {
 img {
   width: auto;
   height: 250px;
+}
+
+h3 {
+  font-family:"Merienda";
 }
 </style>
