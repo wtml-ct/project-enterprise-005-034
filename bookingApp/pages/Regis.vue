@@ -2,10 +2,12 @@
     <div>
         <div>
             <h3 class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">Register</h3>
+            <br>
             <p><img class="img"
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg">
             </p>
         </div>
+        <br>
         <div class="input">
             <v-text-field outlined rounded v-model.trim="form.user_name" label="Full name"></v-text-field>
             <v-text-field outlined rounded v-model.trim="form.user_username" label="Username"></v-text-field>
@@ -73,20 +75,20 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
-    height: 40%;
+    width: 25%;
+    height: 25%;
 }
 
 .input {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 30%;
 }
 
 h3 {

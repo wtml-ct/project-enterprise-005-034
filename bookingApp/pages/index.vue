@@ -2,12 +2,13 @@
     <div>
         <div>
             <h3 class="mt-2 text-center" style="font-weight: 700; font-size: 250%;">Login</h3>
+            <br>
             <p><img class="img"
                     src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg">
             </p>
         </div>
         <div class="input">
-        
+            <br>
             <v-text-field outlined rounded v-model.trim="form.user_username" label="Username"></v-text-field>
             <v-text-field outlined rounded type="password" v-model.trim="form.user_password" label="Password"></v-text-field>
            
@@ -70,7 +71,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .signup {
     margin: 20px;
 }
@@ -79,15 +80,15 @@ export default {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
-    height: 40%;
+    width: 35%;
+    height: 35%;
 }
 
 .input {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 35%;
 }
 
 h3 {
