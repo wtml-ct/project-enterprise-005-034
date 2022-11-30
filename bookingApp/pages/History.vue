@@ -72,15 +72,11 @@ export default {
     computed: {},
     watch: {},
     mounted() {},
-    created() {
+    async created() {
         this.user = JSON.parse(sessionStorage.getItem("users"))
-
-        Axios.get("/api/getAllBookings").then((res) => {
+        await Axios.get("/api/getAllBookings").then((res) => {
             var bb = res.data
-            // console.log(bb);
-            // console.log(this.user.id);
             var book = bb.filter((data) => data.user.id == this.user.id)
-            // console.log("book",book);
             if (book == undefined) {
                 alert("Dont have booking.");
             } else {
@@ -88,16 +84,19 @@ export default {
             }
         })
     },
-
-    beforeDestroy() {
-
-    },
+    beforeDestroy() {},
     methods: {
         onDeleteBooking(index) {
             console.log(index.id)
             Axios.delete("/api/deleteBookingById/" + index.id).then((res) => {
                 Axios.get("/api/getAllBookings").then((res) => {
-                    this.booking = res.data;
+                    var bb = res.data
+                    var book = bb.filter((data) => data.user.id == this.user.id)
+                    if (book == undefined) {
+                        alert("Dont have booking.");
+                    } else {
+                        this.booking = book;
+                    }
                 })
             })
         },
@@ -105,7 +104,13 @@ export default {
             console.log("edit", this.form)
             Axios.post("/api/updateBookingById/" + this.form.id, this.form).then((res) => {
                 Axios.get("/api/getAllBookings").then((res) => {
-                    this.booking = res.data;
+                    var bb = res.data
+                    var book = bb.filter((data) => data.user.id == this.user.id)
+                    if (book == undefined) {
+                        alert("Dont have booking.");
+                    } else {
+                        this.booking = book;
+                    }
                 })
             });
 

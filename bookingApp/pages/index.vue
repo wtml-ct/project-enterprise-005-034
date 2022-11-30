@@ -11,8 +11,6 @@
             <br>
             <v-text-field outlined rounded v-model.trim="form.user_username" label="Username"></v-text-field>
             <v-text-field outlined rounded type="password" v-model.trim="form.user_password" label="Password"></v-text-field>
-           
-        
         </div>
         <div class="text-center">
             <v-btn rounded color="green" dark @click="onSignin">
@@ -62,7 +60,6 @@ export default {
                 } else {
                     sessionStorage.setItem("users", JSON.stringify(login));
                     this.$router.push({ path: "/BookingBook" });
-
                 }
 
             })
