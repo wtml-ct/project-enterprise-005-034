@@ -1,9 +1,5 @@
 package com.mfu.bookingbook.domain;
 
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.*;
 
 @Entity
