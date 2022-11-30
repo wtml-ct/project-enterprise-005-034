@@ -72,9 +72,9 @@ export default {
     computed: {},
     watch: {},
     mounted() {},
-    async created() {
+    created() {
         this.user = JSON.parse(sessionStorage.getItem("users"))
-        await Axios.get("/api/getAllBookings").then((res) => {
+        Axios.get("/api/getAllBookings").then((res) => {
             var bb = res.data
             var book = bb.filter((data) => data.user.id == this.user.id)
             if (book == undefined) {

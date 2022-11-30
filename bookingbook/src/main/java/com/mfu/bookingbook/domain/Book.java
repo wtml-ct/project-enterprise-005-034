@@ -25,19 +25,10 @@ public class Book {
 	@Column(name = "DESCRIPTION")
 	private String description;
 
-	// @Column(name="ISBOOKED")
-	// private boolean isBooked;
-
-	// @JsonIgnore
-	// @OneToMany
-	// @JoinColumn(name="bookingBook")
-	// private Set<Booking> bookingIn;
-
 	@JsonIgnore
 	@OneToMany(mappedBy = "bookingBook")
 	private Set<Booking> booking;
 
-	// @JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "AUTHOR_ID")
 	private Author author;
