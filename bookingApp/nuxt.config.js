@@ -48,12 +48,12 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'http://localhost:8081',
+    baseURL: 'http://34.143.151.33:8080/',
     proxy: true,
   },
   proxy:{
     '/api':{
-      target: 'http://localhost:8081/',
+      target: 'http://34.143.151.33:8080/',
       changeOrigin: true,
       pathRewrite:{
         '^/api':'/'
